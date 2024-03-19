@@ -168,6 +168,4 @@ To run the tests for the api with Yarn and after launching up the database, exec
 
 #### b. unit
 
-##### 1. yarn prisma:test:deploy   
-##### 2. yarn pretest:unit
 ##### 3. yarn test:unit
