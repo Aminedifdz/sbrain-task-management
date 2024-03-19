@@ -1,0 +1,648 @@
+{
+	"info": {
+		"_postman_id": "d1c6e244-cd18-4e1b-8078-f5429786623e",
+		"name": "SBrain Task Exercice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sigin/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mohammedamdif@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/auth/signin",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mohammedamdif@gmail.com\",\n    \"password\": \"1234\",\n    \"firstName\": \"mohammed\",\n    \"lastName\": \"amine\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/auth/signup",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6Im1vaGFtbWVkYW1kaWZAZ21haWwuY29tIiwiaWF0IjoxNzEwODE0OTA4LCJleHAiOjE4MDA4MTQ5MDh9.Bx8ZX5gVa1w11CzgOFJO3CQINSWr_TJpGnYs9woAFtk\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/auth/refreshToken",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"auth",
+								"refreshToken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6Im1vaGFtbWVkYW1kaWZAZ21haWwuY29tIiwiaWF0IjoxNzEwODE0OTA4LCJleHAiOjE4MDA4MTQ5MDh9.Bx8ZX5gVa1w11CzgOFJO3CQINSWr_TJpGnYs9woAFtk\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/auth/refreshToken",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"auth",
+								"refreshToken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "update user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host_url}}/users",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"verificationToken\": \"fd6a1e63-525e-4cfe-9491-b55d03e76086\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/users/verify/caba079a-9046-4649-9da7-fce081a84460",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"users",
+								"verify",
+								"caba079a-9046-4649-9da7-fce081a84460"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host_url}}/users",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host_url}}/users",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host_url}}/users",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6Im1vaGFtbWVkYW1kaWZAZ21haWwuY29tIiwiaWF0IjoxNzEwODE0OTA4LCJleHAiOjE3MTExMTQ5MDh9.DeOQHBysIlgPLDlAuW2IylFTsle0jDuvu5MT-ygSRzY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host_url}}/users/me",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\":\"mohammedamdif@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/users/forgot_password",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"users",
+								"forgot_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"amine_12\",\n    \"confirmPassword\": \"amine_12\",\n    \"resetPasswordToken\": \"LFAgEgcDkVsJ8O4UV_WFTON7XtLVI1L_AV_8KfvZ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/api/v1/users/reset_password",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"reset_password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task",
+			"item": [
+				{
+					"name": "create task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6Im1vaGFtbWVkYW1kaWZAZ21haWwuY29tIiwiaWF0IjoxNzEwODE1MjA1LCJleHAiOjE3MTExMTUyMDV9.iftKGOvCE1yAmARM0MW7a3MBsCU3itcK8t1zadAxfwM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"string 7\",\n    \"description\": \"string 3\",\n    \"dueDate\": \"2024-03-11\",\n    \"status\": \"Complete\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/tasks",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY29uZG9ycDhhbWluZTFAZ21haWwuY29tIiwiaWF0IjoxNzEwMTc2ODU4LCJleHAiOjE3MTA0NzY4NTh9.XXqzkEO8U8ZjtTCLzLN2_y5ZuKnBLCxi2s-Rnta3pRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"string 12\",\n    \"description\": \"string 12\",\n    \"dueDate\": \"2024-03-14\",\n    \"status\": \"Complete\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_url}}/tasks/12",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"tasks",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6Im1vaGFtbWVkYW1kaWZAZ21haWwuY29tIiwiaWF0IjoxNzEwODE1MjA1LCJleHAiOjE3MTExMTUyMDV9.iftKGOvCE1yAmARM0MW7a3MBsCU3itcK8t1zadAxfwM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host_url}}/tasks?page=1&pageSize=5&sort=desc&status=complete&dueDate=2024-03-11",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "desc"
+								},
+								{
+									"key": "status",
+									"value": "complete"
+								},
+								{
+									"key": "dueDate",
+									"value": "2024-03-11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get All tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY29uZG9ycDhhbWluZUBnbWFpbC5jb20iLCJpYXQiOjE3MTA0Mjg0MTcsImV4cCI6MTcxMDcyODQxN30.lLRT7L1gWcuNCEGS3g7LYoBHlslrkPmEHZOsmdrPo_E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host_url}}/tasks/all?cursorId=20&pageSize=5&sort=asc&status=complete&dueDate=2024-03-11",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"tasks",
+								"all"
+							],
+							"query": [
+								{
+									"key": "cursorId",
+									"value": "20"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								},
+								{
+									"key": "status",
+									"value": "complete"
+								},
+								{
+									"key": "dueDate",
+									"value": "2024-03-11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6Im1vaGFtbWVkYW1kaWZAZ21haWwuY29tIiwiaWF0IjoxNzEwODE1MjA1LCJleHAiOjE3MTExMTUyMDV9.iftKGOvCE1yAmARM0MW7a3MBsCU3itcK8t1zadAxfwM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{host_url}}/tasks/24",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"tasks",
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiY29uZG9ycDhhbWluZTFAZ21haWwuY29tIiwiaWF0IjoxNzEwMTc2ODU4LCJleHAiOjE3MTA0NzY4NTh9.XXqzkEO8U8ZjtTCLzLN2_y5ZuKnBLCxi2s-Rnta3pRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host_url}}/tasks/9",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"tasks",
+								"9"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Docs",
+			"item": [
+				{
+					"name": "Get Documentation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host_url}}/docs",
+							"host": [
+								"{{host_url}}"
+							],
+							"path": [
+								"docs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

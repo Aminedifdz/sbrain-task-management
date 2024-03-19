@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysqldb
+    volumes:
+      - /home/db_task:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: task_api
+      MYSQL_USER: ${ENV_MYSQL_USER}
+      MYSQL_PASSWORD: ${ENV_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${ENV_MYSQL_ROOT_PASSWORD}
+      MYSQL_POOL_SIZE: 12000
+      MYSQL_CONNECT_TIMEOUT: 60000
+    networks:
+       - tasknet
+       
+  test-db:
+    image: mysql:8.0
+    container_name: mysqldtest
+    volumes:
+       - /home/db_task_test:/var/lib/mysql
+    ports:
+      - 3340:3306
+    environment:
+      MYSQL_DATABASE: task_api_test
+      MYSQL_USER: ${ENV_MYSQL_USER}
+      MYSQL_PASSWORD: ${ENV_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${ENV_MYSQL_ROOT_PASSWORD}
+      MYSQL_POOL_SIZE: 12000
+      MYSQL_CONNECT_TIMEOUT: 60000
+    networks:
+      - tasknet
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: unless-stopped
+    environment:
+      REDIS_PWD: '${REDIS_PASSWORD}'
+    command: /bin/sh -c "redis-server --requirepass ${REDIS_PASSWORD}"
+    volumes:
+      - ./redis.conf:/etc/redis/redis.conf
+    ports:
+      - '6379:6379'
+    networks:
+      - tasknet
+
+networks:
+  tasknet:

@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   Int       @id @default(autoincrement())
+  email                String    @unique
+  hash                 String
+  firstName            String?
+  lastName             String?
+  isVerified           Boolean   @default(false)
+  verificationToken    String?
+  resetPasswordToken   String?   @unique
+  resetPasswordExpires String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime? @updatedAt
+  deleted              Boolean   @default(false)
+  deletedAt            DateTime?
+
+  Task                 Task[]
+  RefreshToken         RefreshToken[]
+
+  @@map("users")
+}
+
+model Task {
+  id              Int       @id @default(autoincrement())
+  status          TaskStatus @default(Incomplete)
+  title           String
+  description     String?
+  dueDate         String?
+  userId          Int
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime? @updatedAt
+  deleted         Boolean   @default(false)
+  deletedAt       DateTime?
+
+  user            User     @relation(fields: [userId], references: [id])
+
+  @@map("tasks")
+}
+
+model RefreshToken {
+  id        Int       @id @default(autoincrement())
+  email     String?   @unique
+  token     String?   @unique
+  userId    Int?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  deleted   Boolean   @default(false)
+  deletedAt DateTime?
+
+  User User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refreshtokens")
+}
+
+
+enum TaskStatus {
+  Incomplete
+  Complete
+}
